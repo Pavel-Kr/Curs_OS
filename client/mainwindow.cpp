@@ -26,7 +26,7 @@ void MainWindow::sendToServer(QString str)
     data.clear();
     QDataStream out(&data,QIODevice::WriteOnly);
     out.setVersion(QDataStream::Qt_5_12);
-    QString message = name + " [" + QTime::currentTime().toString("hh:mm") + "]: " + str;
+    QString message = "[" + QTime::currentTime().toString("hh:mm") + "] " + name + ": " + str;
     out << message;
     socket->write(data);
 }
